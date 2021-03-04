@@ -115,6 +115,7 @@ public class PackageMessageFactory {
             String id = UUID.randomUUID().toString();
             LOG.debug("Creating package binary with id [{}] for package [{}], length [{}]", id, disPkg.getId(), pkgLength);
             storeRef =  binaryStore.put(id, disPkg.createInputStream(), pkgLength);
+            LOG.info("Created package binary with id [{}] for package [{}], length [{}]", id, disPkg.getId(), pkgLength);
         } catch (IOException e) {
             throw new DistributionException(e.getMessage(), e);
         }
